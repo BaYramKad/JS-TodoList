@@ -13,7 +13,7 @@ const renderTodo = function(){
     const todos = todoData();
     todoList.innerHTML = ``;
     todoCompleted.innerHTML = ``;
-    todos.forEach(function(item, i){
+    todos.forEach((item, i) => {
         const newItem = `
             <li class="todo-item" data-id="${i}">
                 <span class="text-todo">${item.title}</span>
@@ -33,7 +33,6 @@ const renderTodo = function(){
 
 const addTodo = function(event){
     const todos = todoData();
-    console.log('todos: ', todos);
     todos.push({
         title: headerInput.value,
         status: false
@@ -57,11 +56,10 @@ const changeStatus = function(id){
             item.status = !item.status;
         }
     });
-    console.log(todos)
     localStorage.setItem("todos", JSON.stringify(todos));
     renderTodo();
 };
-
+const todos = todoData();
 renderTodo();
 todoContainer.addEventListener("click", function(e){
     todoData();
